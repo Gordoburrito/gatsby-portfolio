@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Gordon Lewis`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Gordon Lewis`,
+      summary: `an artist solving problems with design.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Gordon Lewis's portfolio`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `gordoburrito`,
     },
   },
   plugins: [
@@ -26,6 +26,14 @@ module.exports = {
         name: `assets`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
+      },
+    },
+    
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -49,7 +57,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        tracedSVGOptions:   {
+          color: "#FF0000",
+          optTolerance: 0.4,
+          turdSize: 100,
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
